@@ -39,11 +39,11 @@
 <!--                                    </li>-->
                                 </ul>
                             </div>
-                            <div class="col-md-6">
-                                <img src="../../static/images/guacamole400x400WithX.jpg"
-                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"
-                                     width="200" height="200">
-                            </div>
+<!--                            <div class="col-md-6">-->
+<!--                                <img src="../../static/images/guacamole400x400WithX.jpg"-->
+<!--                                     th:src="@{'/recipe/' + ${recipe.id} + '/recipeimage'}"-->
+<!--                                     width="200" height="200">-->
+<!--                            </div>-->
                         </div>
                         <div class="row">
                             <div class="col-md-3">
@@ -78,13 +78,13 @@
                                 <h5>Source:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p th:text="${recipe.source}">30 min</p>
+                                <p>30 min</p>
                             </div>
                             <div class="col-md-3">
                                 <h5>URL:</h5>
                             </div>
                             <div class="col-md-3">
-                                <p><a href="#" th:href="@{recipe.url}">View Original</a></p>
+                                <p><a href="#">View Original</a></p>
                             </div>
                         </div>
                     </div>
@@ -92,13 +92,13 @@
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         <div class="row">
-                            <div class="col-md-11 ">
+<!--                            <div class="col-md-11 ">-->
                                 <h1 class="panel-title">Ingredients</h1>
-                            </div>
-                            <div class="col-md-1">
-                                <a class="btn btn-default" href="#"
-                                   th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
-                            </div>
+<!--                            </div>-->
+<!--                            <div class="col-md-1">-->
+<!--                                <a class="btn btn-default" href="#"-->
+<!--                                   th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>-->
+<!--                            </div>-->
                         </div>
                     </div>
                     <div class="panel-body">
@@ -107,11 +107,11 @@
                                 <ul>
                                     <li th:remove="all">1 Cup of milk</li>
                                     <li th:remove="all">1 Teaspoon of chocolate</li>
-                                    <li th:each="ingredient : ${recipe.ingredients}"
-                                        th:text="${(ingredient.getAmount() +
-                                        ' ' + ingredient.uom.getDescription() +
-                                        ' - ' + ingredient.getDescription())}">1 Teaspoon of Sugar
-                                    </li>
+<!--                                    <li th:each="ingredient : ${recipe.ingredients}"-->
+<!--                                        th:text="${(ingredient.getAmount() +-->
+<!--                                        ' ' + ingredient.uom.getDescription() +-->
+<!--                                        ' - ' + ingredient.getDescription())}">1 Teaspoon of Sugar-->
+<!--                                    </li>-->
                                 </ul>
                             </div>
                         </div>
