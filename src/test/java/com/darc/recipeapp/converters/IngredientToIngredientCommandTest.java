@@ -4,7 +4,7 @@ import com.darc.recipeapp.commands.IngredientCommand;
 import com.darc.recipeapp.domain.Ingredient;
 import com.darc.recipeapp.domain.Recipe;
 import com.darc.recipeapp.domain.UnitOfMeasure;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.math.BigDecimal;
@@ -28,7 +28,7 @@ class IngredientToIngredientCommandTest {
     }
 
     @Test
-    void testNullConvert() throws Exception {
+    void testNullConvert() {
         assertNull(converter.convert(null));
     }
 
@@ -38,7 +38,7 @@ class IngredientToIngredientCommandTest {
     }
 
     @Test
-    void testConvertNullUOM() throws Exception {
+    void testConvertNullUOM(){
         //given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);
@@ -56,7 +56,7 @@ class IngredientToIngredientCommandTest {
     }
 
     @Test
-    void testConvertWithUom() throws Exception {
+    void testConvertWithUom(){
         //given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);
