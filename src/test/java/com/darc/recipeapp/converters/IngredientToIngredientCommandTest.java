@@ -33,12 +33,12 @@ class IngredientToIngredientCommandTest {
     }
 
     @Test
-    public void testEmptyObject() throws Exception {
+    void testEmptyObject(){
         assertNotNull(converter.convert(new Ingredient()));
     }
 
     @Test
-    public void testConvertNullUOM() throws Exception {
+    void testConvertNullUOM() throws Exception {
         //given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);
@@ -56,7 +56,7 @@ class IngredientToIngredientCommandTest {
     }
 
     @Test
-    public void testConvertWithUom() throws Exception {
+    void testConvertWithUom() throws Exception {
         //given
         Ingredient ingredient = new Ingredient();
         ingredient.setId(ID_VALUE);
