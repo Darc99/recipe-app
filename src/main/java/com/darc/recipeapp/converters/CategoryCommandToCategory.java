@@ -3,10 +3,12 @@ package com.darc.recipeapp.converters;
 import com.darc.recipeapp.commands.CategoryCommand;
 import com.darc.recipeapp.domain.Category;
 import lombok.Synchronized;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CategoryCommandToCategory implements Converter<CategoryCommand, Category>{
+public class CategoryCommandToCategory implements Converter<CategoryCommand, Category> {
 
     @Synchronized
     @Nullable
