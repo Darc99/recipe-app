@@ -74,7 +74,7 @@ class RecipeControllerTest {
                 .param("directions", "some directions")
         )
                 .andExpect(status().is3xxRedirection())
-                .andExpect(view().name("redirect:/recipe/show/2"));
+                .andExpect(view().name("redirect:/recipe/2/show"));
     }
 
     @Test

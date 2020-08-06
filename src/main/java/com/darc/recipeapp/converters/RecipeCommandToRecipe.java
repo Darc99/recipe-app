@@ -2,7 +2,9 @@ package com.darc.recipeapp.converters;
 
 import com.darc.recipeapp.commands.RecipeCommand;
 import com.darc.recipeapp.domain.Recipe;
+import lombok.Synchronized;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,6 +21,8 @@ public class RecipeCommandToRecipe implements Converter<RecipeCommand, Recipe> {
         this.notesConverter = notesConverter;
     }
 
+    @Synchronized
+    @Nullable
     @Override
     public Recipe convert(RecipeCommand source) {
 
