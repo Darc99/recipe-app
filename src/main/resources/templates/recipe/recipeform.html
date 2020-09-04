@@ -89,13 +89,13 @@
                                 <!--/*@thymesVar id="Difficulty" type="com.darc.recipeapp.domain.Difficulty"*/-->
                                 <div class="col-md-3 form-group">
                                     <label>Difficulty:</label>
-<!--                                    <select class="form-control" th:field="*{difficulty}">-->
-<!--                                        <option th:each="difficultyValue : ${T(Difficulty).values()}"-->
-<!--                                                th:value="${difficultyValue.name()}"-->
-<!--                                                th:text="${difficultyValue.name()}"-->
-<!--                                        >val-->
-<!--                                        </option>-->
-<!--                                    </select>-->
+                                    <select class="form-control" th:field="*{difficulty}">
+                                        <option th:each="difficultyValue : ${T(Difficulty).values()}"
+                                                th:value="${difficultyValue.name()}"
+                                                th:text="${difficultyValue.name()}"
+                                        >val
+                                        </option>
+                                    </select>
                                     <select class="form-control" th:remove="all">
                                         <option>Easy</option>
                                         <option>Medium</option>
