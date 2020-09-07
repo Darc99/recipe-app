@@ -2,6 +2,7 @@ package com.darc.recipeapp.controller;
 
 import com.darc.recipeapp.commands.RecipeCommand;
 import com.darc.recipeapp.domain.Recipe;
+import com.darc.recipeapp.exceptions.NotFoundException;
 import com.darc.recipeapp.service.RecipeService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -37,7 +38,7 @@ class RecipeControllerTest {
     }
 
     @Test
-    void showId() throws Exception {
+    void testGetRecipe() throws Exception {
 
         Recipe recipe = new Recipe();
         recipe.setId(1L);
@@ -48,6 +49,19 @@ class RecipeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("recipe/show"))
                 .andExpect(model().attributeExists("recipe"));
+    }
+
+    @Test
+    void testGetRecipeNotFound() throws Exception {
+
+        Recipe recipe = new Recipe();
+        recipe.setId(1L);
+
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound());
+                //.andExpect(view().name("404error"));
     }
 
     @Test

@@ -3,7 +3,9 @@ package com.darc.recipeapp.service;
 import com.darc.recipeapp.converters.RecipeCommandToRecipe;
 import com.darc.recipeapp.converters.RecipeToRecipeCommand;
 import com.darc.recipeapp.domain.Recipe;
+import com.darc.recipeapp.exceptions.NotFoundException;
 import com.darc.recipeapp.repositories.RecipeRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -51,8 +53,19 @@ class RecipeServiceImplTest {
         verify(recipeRepository,times(1)).findAll();
     }
 
+//    @Test
+//    //Assertions.assertThrows(NotFoundException.class)
+//    void getRecipeByIdTestNotFound() {
+//
+//        Optional<Recipe> recipeOptional = Optional.empty();
+//
+//        when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
+//
+//        Recipe recipeReturned = recipeService.findById(1L);
+//    }
+
     @Test
-    void getRecipeByIdTest() {
+    void getRecipeCommandByIdTest() {
 
         Recipe recipe = new Recipe();
         recipe.setId(1L);
@@ -65,6 +78,21 @@ class RecipeServiceImplTest {
         assertNotNull(recipeReturned);
         verify(recipeRepository, times(1)).findById(anyLong());
         verify(recipeRepository, never()).findAll();
+    }
+
+    @Test
+    public void getRecipesTest() {
+        Recipe recipe = new Recipe();
+        HashSet recipesData = new HashSet();
+        recipesData.add(recipe);
+
+        when(recipeService.getRecipes()).thenReturn(recipesData);
+
+        Set<Recipe> recipes = recipeService.getRecipes();
+
+        assertEquals(recipes.size(), 1);
+        verify(recipeRepository, times(1)).findAll();
+        verify(recipeRepository, never()).findById(anyLong());
     }
 
     @Test
